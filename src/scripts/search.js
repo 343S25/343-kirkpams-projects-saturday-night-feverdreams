@@ -4,8 +4,9 @@ const client_secret = "6kavtb4yh6jks5a9fup3fyjmicjicv";
 document.addEventListener("DOMContentLoaded", () => {
     let submit = document.getElementById('submit');
     submit.addEventListener("click", search);
+    
 });
-
+    
 async function search(event) {
     event.preventDefault();
     let query = document.getElementById('title').value;
@@ -62,7 +63,7 @@ async function search(event) {
             button.addEventListener("click", () => save(game.name, game.box_art_url));
             line.classList.add('boxed');
 
-            item.textContent = `${count}. Title: ${game.name}`;
+            item.textContent = `${count}: ${game.name}`;
 
             img.setAttribute('src', game.box_art_url);
             img.setAttribute('alt', `${game.name} Box Art`)
@@ -79,5 +80,9 @@ async function search(event) {
 }
 
 function save(name, img) {
-    console.log(img);
+    const storedGames = JSON.parse(localStorage.getItem("games")) || [];
+
+    storedGames.push({ title: name, image: img });
+    localStorage.setItem("games", JSON.stringify(storedGames));
+    window.location.href = "index.html";
 }
