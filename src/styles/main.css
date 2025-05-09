@@ -37,3 +37,8 @@ ul#menu li a:hover {
     font-family: Helvetica, Arial, sans-serif;
     height: 100vh;
   }
+
+  button {
+    font-size: 21px;
+    font-family: Helvetica, Arial, sans-serif;
+  }
