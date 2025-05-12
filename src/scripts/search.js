@@ -84,5 +84,5 @@ function save(name, img) {
 
     storedGames.push({ title: name, image: img });
     localStorage.setItem("games", JSON.stringify(storedGames));
-    window.location.href = "index.html";
+    window.location.href = "../index.html";
 }
